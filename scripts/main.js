@@ -15,7 +15,11 @@
   window.myTruck = myTruck;
   var checkList = new CheckList(CHECKLIST_SELECTOR);
   checkList.addClickHandler(myTruck.deliverOrder.bind(myTruck));
+  var Reload = App.Reload;
+  var reloadPage = new Reload(SERVER_URL);
   var formHandler = new FormHandler(FORM_SELECTOR);
+
+  reloadPage.reloadPage();
 
   formHandler.addSubmitHandler(function(data) {
     myTruck.createOrder.call(myTruck, data);
